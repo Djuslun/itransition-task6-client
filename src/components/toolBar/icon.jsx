@@ -7,8 +7,8 @@ const Icon = ({ selectedIcon }) => {
   const icons = {
     rect: <RectangleOutlinedIcon />,
     rhombus: <SquareOutlinedIcon sx={{ transform: 'rotate(45deg)', width: '24px', height: '24px' }} />,
-    circle: <CircleOutlinedIcon />,
-    threeangle: <ChangeHistoryOutlinedIcon />,
+    ellipse: <CircleOutlinedIcon />,
+    triangle: <ChangeHistoryOutlinedIcon />,
   }
 
   return (<>{icons[selectedIcon]}</>)

@@ -23,11 +23,11 @@ const SelectFigure = ({ handleChange }) => {
         <ToggleButton value="rhombus" sx={sx}>
           <Icon selectedIcon={"rhombus"} />
         </ToggleButton>
-        <ToggleButton value="circle" sx={sx}>
-          <Icon selectedIcon={"circle"} />
+        <ToggleButton value="ellipse" sx={sx}>
+          <Icon selectedIcon={"ellipse"} />
         </ToggleButton>
-        <ToggleButton value="threeangle" sx={sx}>
-          <Icon selectedIcon={"threeangle"} />
+        <ToggleButton value="triangle" sx={sx}>
+          <Icon selectedIcon={"triangle"} />
         </ToggleButton>
         <ToggleButton value="rect" sx={{ ...sx }} >
           <Icon selectedIcon={"rect"} />

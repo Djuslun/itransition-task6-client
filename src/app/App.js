@@ -1,11 +1,15 @@
-import './App.css';
 import ToolBar from '../components/toolBar/toolBar';
+import Header from '../components/header/header';
+import Canvas from '../components/canvas/canvas';
+import './App.css';
 
 function App() {
 
   return (
-    <div className='p-10 bg-slate-100 min-h-screen'>
+    <div className='overflow-hidden min-h-screen flex flex-col'>
+      <Header />
       <ToolBar />
+      <Canvas />
     </div>
   )
 }

@@ -26,7 +26,7 @@ export const SelectFigureBar = ({ handleChange, currentValue }) => {
       <div
         style={{
           bottom: `${-1}px`,
-          left: `${menuPosition.x + 14}px`
+          left: `${menuPosition.x + menuPosition.width}px`
         }}
         className={`portal__container fixed  bg-blue-300 shadow-md shadow-blue-400 rounded-md border-blue-400`}
         ref={container}></div>
