@@ -5,7 +5,7 @@ import { Context } from './selectFigureBar';
 import Icon from '../icon';
 
 const SelectFigure = ({ handleChange }) => {
-  const { toolBarValue, handleChangeToolBarValue } = useContext(Context)
+  const { toolBarValue, handleChangeToolBarValue, setIsActive } = useContext(Context)
   const sx = { border: 'none', borderRadius: '4px !important' }
 
   return (
@@ -16,6 +16,7 @@ const SelectFigure = ({ handleChange }) => {
         onChange={(_, newAlignment) => {
           handleChangeToolBarValue(_, newAlignment)
           handleChange(_, newAlignment)
+          setIsActive(false)
         }}
         size="medium"
         orientation="horizontal"

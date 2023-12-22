@@ -1,6 +1,7 @@
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import CursorIcon from '../../ui/cursorIcon';
 import EraserIcon from '../../ui/eraserIcon';
 import { SelectFigureBar } from './selectFigure/selectFigureBar';
 import { useToolBarChabge } from './useToolBarChabge';
@@ -22,6 +23,9 @@ const ToolBar = ({ }) => {
         </ToggleButton>
         <ToggleButton value="eraser" sx={sx}>
           <EraserIcon />
+        </ToggleButton>
+        <ToggleButton value="cursor" sx={sx}>
+          <CursorIcon />
         </ToggleButton>
         <SelectFigureBar handleChange={handleChangeToolBarValue} currentValue={toolBarValue} />
       </ToggleButtonGroup>

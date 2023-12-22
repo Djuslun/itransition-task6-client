@@ -38,5 +38,5 @@ export const useActiveSelectFigure = (alignment, currentValue, container) => {
     };
   }, [isActive]);
 
-  return { handleActive, menuPosition, isActive }
+  return { handleActive, menuPosition, isActive, setIsActive }
 }

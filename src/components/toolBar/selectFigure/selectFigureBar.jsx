@@ -9,11 +9,11 @@ export const Context = createContext(null)
 export const SelectFigureBar = ({ handleChange, currentValue }) => {
   const container = useRef(null)
   const { toolBarValue, handleChangeToolBarValue } = useToolBarChabge('rect');
-  const { handleActive, menuPosition, isActive } = useActiveSelectFigure(toolBarValue, currentValue, container)
+  const { handleActive, menuPosition, isActive, setIsActive } = useActiveSelectFigure(toolBarValue, currentValue, container)
 
   return (
     <Context.Provider value={{
-      toolBarValue, handleChangeToolBarValue, handleActive
+      toolBarValue, handleChangeToolBarValue, handleActive, setIsActive
     }}>
       <SelectFigureButton
         handleChange={handleChange}

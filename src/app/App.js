@@ -4,7 +4,6 @@ import Canvas from '../components/canvas/canvas';
 import './App.css';
 
 function App() {
-
   return (
     <div className='overflow-hidden min-h-screen flex flex-col'>
       <Header />

@@ -12,6 +12,10 @@ export const useCanvas = (tool) => {
     const pos = e.target.getStage().getPointerPosition();
     lastLine.current = [pos.x, pos.y];
 
+    if (tool === 'cursor') {
+      return
+    }
+
     if (tool === 'pen' || tool === 'eraser') {
       return setShapes([
         ...shapes,
@@ -36,7 +40,7 @@ export const useCanvas = (tool) => {
   };
 
   const handleMouseMove = (e) => {
-    if (!isDrawing.current) {
+    if (!isDrawing.current || tool === 'cursor') {
       return;
     }
     const stage = e.target.getStage();
