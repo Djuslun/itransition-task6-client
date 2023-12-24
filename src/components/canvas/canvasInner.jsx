@@ -8,7 +8,7 @@ const CanvasInner = () => {
   const { tool } = useSelector(store => store.tools)
   const { handleMouseDown, handleMouseMove, handleMouseUp, shapes } = useCanvas(tool)
   const canvasRef = useRef()
-
+  console.log(shapes)
   return (
     <div className='border-2 border-gray-400 shadow-gray-500 rounded-md'>
       <Stage
