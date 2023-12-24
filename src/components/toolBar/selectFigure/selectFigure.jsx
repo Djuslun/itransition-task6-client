@@ -9,7 +9,7 @@ const SelectFigure = ({ handleChange }) => {
   const sx = { border: 'none', borderRadius: '4px !important' }
 
   return (
-    <div className='border border-blue-400 rounded-md'>
+    <div className='border border-gray-400 rounded-md'>
       <ToggleButtonGroup
         value={toolBarValue}
         exclusive

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import tools from './toolSlice';
+import canvas from './canvasSlice';
 
 const store = configureStore({
   reducer: {
-    tools
+    tools,
+    canvas
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware(),
   devTools: process.env.NODE_ENV !== 'production',

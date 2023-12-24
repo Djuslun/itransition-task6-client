@@ -11,7 +11,9 @@ const Canvas = ({ }) => {
 
   return (
     <div className='flex justify-end pr-5 relative'>
-      <div style={{ height: `${clientRect.height}px`, width: `${clientRect.width}px` }} className='p-5 flex justify-center h-max relative top-0'>
+      <div
+        style={{ height: `${clientRect.height}px`, width: `${clientRect.width}px` }}
+        className='p-5 flex justify-center h-max relative top-0'>
         <Cursor size={10} left={position.x} top={position.y} tool={tool} />
         <div
           onMouseEnter={handleMouseMove}
@@ -19,7 +21,7 @@ const Canvas = ({ }) => {
           onMouseLeave={handleMouseLeave}
           ref={wrapperRef}
           style={{ transform: `scale(${scaleX}, ${scaleY})` }}
-          className={`h-max origin-top ${cursorClass}`}
+          className={`h-max origin-top ${cursorClass} bg-white rounded-md`}
         >
           <CanvasInner />
         </div>

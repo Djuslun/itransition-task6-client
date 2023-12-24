@@ -10,7 +10,7 @@ const ToolBar = ({ }) => {
   const { toolBarValue, handleChangeToolBarValue } = useToolBarChabge('pen');
   const sx = { border: 'none', borderRadius: '4px !important' }
   return (
-    <div className="border border-blue-400 rounded-md w-max fixed top-1/2 left-3 -translate-y-1/2  bg-blue-300  shadow-md shadow-blue-400 z-40">
+    <div className="border border-gray-400 rounded-md w-max fixed top-1/2 left-3 -translate-y-1/2  bg-white  shadow-md shadow-gray-400 z-40">
       <ToggleButtonGroup
         orientation="vertical"
         value={toolBarValue}

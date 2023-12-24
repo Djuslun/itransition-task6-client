@@ -4,8 +4,8 @@ const toolsAdapter = createEntityAdapter()
 
 const initialState = toolsAdapter.getInitialState({
   tool: 'pen',
-  borderColor: '#000000',
-  fillColor: '#00ffff'
+  borderColor: '#000000ff',
+  fillColor: '#ffffff00'
 })
 
 const toolsSlice = createSlice({

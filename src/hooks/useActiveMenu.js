@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const useActiveSelectFigure = (alignment, currentValue, container) => {
+export const useActiveMenu = (container) => {
   const [isActive, setIsActive] = useState(false)
   const [menuPosition, setMenuPosition] = useState({})
 
@@ -8,13 +8,6 @@ export const useActiveSelectFigure = (alignment, currentValue, container) => {
     setIsActive(prev => !prev)
     setMenuPosition(position)
   }
-
-  useEffect(() => {
-    if (alignment !== currentValue) {
-      setIsActive(false)
-    }
-  }, [alignment, currentValue])
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {

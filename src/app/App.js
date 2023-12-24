@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <div className='overflow-hidden min-h-screen flex flex-col'>
+    <div className='overflow-hidden min-h-screen flex flex-col bg-slate-300'>
       <Header />
       <ToolBar />
       <Canvas />

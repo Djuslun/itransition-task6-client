@@ -1,12 +1,14 @@
-import { useState, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { shapesSet } from "../../store/canvasSlice";
 
 export const useCanvas = (tool) => {
   const { fillColor, borderColor } = useSelector(store => store.tools)
-  const [shapes, setShapes] = useState([]);
+  const { shapes } = useSelector(store => store.canvas)
+  const dispatch = useDispatch()
+
   const isDrawing = useRef(false);
   const lastLine = useRef([]);
-
   const handleMouseDown = (e) => {
     isDrawing.current = true;
     const pos = e.target.getStage().getPointerPosition();
@@ -17,16 +19,16 @@ export const useCanvas = (tool) => {
     }
 
     if (tool === 'pen' || tool === 'eraser') {
-      return setShapes([
+      return dispatch(shapesSet([
         ...shapes,
         {
           tool,
           points: lastLine.current,
           stroke: borderColor
-        }]);
+        }]))
     }
 
-    return setShapes([
+    return dispatch(shapesSet([
       ...shapes,
       {
         tool,
@@ -36,7 +38,7 @@ export const useCanvas = (tool) => {
         fill: fillColor,
         strokeWidth: 5,
       },
-    ]);
+    ]));
   };
 
   const handleMouseMove = (e) => {
@@ -48,26 +50,26 @@ export const useCanvas = (tool) => {
 
     if (tool === 'pen' || tool === 'eraser') {
       lastLine.current = lastLine.current.concat([point.x, point.y]);
-      return setShapes(
+      return dispatch(shapesSet(
         [...shapes.slice(0, shapes.length - 1),
         {
           ...shapes[shapes.length - 1],
           tool, points: lastLine.current
-        }]);
+        }]));
     }
 
-    return setShapes([
+    return dispatch(shapesSet([
       ...shapes.slice(0, shapes.length - 1),
       {
         ...shapes[shapes.length - 1],
         end: { x: point.x, y: point.y },
       },
-    ]);
+    ]));
   };
 
   const handleMouseUp = () => {
     isDrawing.current = false;
   };
 
-  return { handleMouseDown, handleMouseMove, handleMouseUp, shapes, setShapes }
+  return { handleMouseDown, handleMouseMove, handleMouseUp, shapes }
 }

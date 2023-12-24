@@ -1,7 +1,6 @@
 import { Line } from "react-konva"
 
 const Pen = ({ shape }) => {
-
   return (
     <Line
       points={shape.points}
