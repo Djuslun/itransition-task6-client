@@ -9,13 +9,11 @@ export const AppRouter = ({ }) => {
   return (
     <Suspense fallback={<></>}>
       <Router>
-        <main>
-          <Routes>
-            <Route index path="/" element={<MainPage />} />
-            <Route index path="/canvas/:id?" element={<CanvasPage />} />
-            <Route path="*" element={<MainPage />} />
-          </Routes>
-        </main>
+        <Routes>
+          <Route index path="/" element={<MainPage />} />
+          <Route index path="/canvas/:id?" element={<CanvasPage />} />
+          <Route path="*" element={<MainPage />} />
+        </Routes>
       </Router>
     </Suspense>
   );

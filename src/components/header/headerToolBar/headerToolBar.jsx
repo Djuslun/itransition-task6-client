@@ -29,7 +29,7 @@ const HeaderToolBar = ({ }) => {
 
   return (
     <>
-      <div className='flex border bg-white border-gray-400 shadow-gray-500 rounded-md'>
+      <div className='flex border bg-white border-gray-400 shadow-gray-500 rounded-md shadow-sm'>
         <Button
           onClick={() => dispatch(undo())}
           className={buttonClassName}><UndoIcon /></Button>

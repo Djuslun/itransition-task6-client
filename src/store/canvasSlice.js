@@ -3,7 +3,7 @@ import { createSlice, createEntityAdapter } from "@reduxjs/toolkit";
 const canvasAdapter = createEntityAdapter()
 
 const initialState = canvasAdapter.getInitialState({
-  shapes: [],
+  shapes: null,
   undo: [],
 })
 
@@ -15,7 +15,7 @@ const canvasSlice = createSlice({
       state.shapes = action.payload
     },
     shapesClear: (state) => {
-      state.shapes = initialState.shapes
+      state.shapes = []
       state.undo = initialState.undo
     },
     undo: (state) => {
