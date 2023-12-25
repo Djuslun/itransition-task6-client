@@ -19,6 +19,13 @@ export const canvasApiSlice = createApi({
       }),
       providesTags: ['Canvas'],
     }),
+    deleteCanvas: builder.mutation({
+      query: (id) => ({
+        url: `${id}`,
+        method: 'DELETE',
+      }),
+      providesTags: ['Canvas'],
+    }),
     updateCanvas: builder.mutation({
       query: ({ id, shapes }) => ({
         url: `${id}`,
@@ -60,6 +67,7 @@ export const {
   useGetCanvasByIdQuery,
   useUpdateCanvasMutation,
   useLazyGetChangedCanvasQuery,
+  useDeleteCanvasMutation,
 } = canvasApiSlice;
 
 export default canvasApiSlice;
