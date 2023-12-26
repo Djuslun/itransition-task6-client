@@ -1,17 +1,23 @@
 import { Stage, Layer } from 'react-konva';
 import ShapeComponent from './shapeComponent/shapeComponent';
 import { useCanvas } from './useCanvas';
-import { useSelector } from 'react-redux';
-import { useRef, memo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useRef, memo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { canvasBaseSize } from "../../utils/consts";
+import { setCanvasDataUri } from '../../store/canvasSlice';
 
 const CanvasInner = () => {
   const { tool } = useSelector(store => store.tools)
   const { shapes } = useSelector(store => store.canvas)
   const { id } = useParams()
-  const { handleMouseDown, handleMouseMove, handleMouseUp } = useCanvas(tool, id)
   const canvasRef = useRef()
+  const dispatch = useDispatch()
+  const { handleMouseDown, handleMouseMove, handleMouseUp } = useCanvas(tool, id)
+
+  useEffect(() => {
+    dispatch(setCanvasDataUri(canvasRef.current.toDataURL()))
+  }, [canvasRef.current])
 
   return (
     <div className='border-2 border-gray-400 shadow-gray-500 rounded-md'>
