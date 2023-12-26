@@ -15,7 +15,6 @@ export const useCanvas = (tool, id) => {
     if (!isDrawing.current && shapes) {
       updateCanvas({ id, shapes })
     }
-
   }, [shapes?.length])
 
   useEffect(() => {

@@ -4,10 +4,10 @@ import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import CursorIcon from '../../ui/cursorIcon';
 import EraserIcon from '../../ui/eraserIcon';
 import { SelectFigureBar } from './selectFigure/selectFigureBar';
-import { useToolBarChabge } from './useToolBarChabge';
+import { useToolBarChange } from './useToolBarChange';
 
 const ToolBar = ({ }) => {
-  const { toolBarValue, handleChangeToolBarValue } = useToolBarChabge('pen');
+  const { toolBarValue, handleChangeToolBarValue } = useToolBarChange();
   const sx = { border: 'none', borderRadius: '4px !important' }
   return (
     <div className="border border-gray-400 rounded-md w-max fixed top-1/2 left-3 -translate-y-1/2  bg-white  shadow-md shadow-gray-400 z-40">

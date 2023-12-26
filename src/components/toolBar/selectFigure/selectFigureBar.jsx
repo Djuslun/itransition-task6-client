@@ -3,12 +3,12 @@ import SelectFigure from "./selectFigure";
 import SelectFigureButton from "../selectFigureButton/selectFigureButton";
 import { Portal } from '@mui/base/Portal';
 import { useActiveMenu } from "../../../hooks/useActiveMenu";
-import { useToolBarChabge } from "../useToolBarChabge";
+import { useToolBarChange } from "../useToolBarChange";
 export const Context = createContext(null)
 
 export const SelectFigureBar = ({ handleChange, currentValue }) => {
   const container = useRef(null)
-  const { toolBarValue, handleChangeToolBarValue } = useToolBarChabge('rect');
+  const { toolBarValue, handleChangeToolBarValue } = useToolBarChange('rect');
   const { handleActive, menuPosition, isActive, setIsActive } = useActiveMenu(container)
 
   return (
