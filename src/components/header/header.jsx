@@ -12,11 +12,11 @@ const Header = ({ }) => {
   return (
     <>
       <header className="p-2 pl-20 w-screen bg-gray-300  shadow-md shadow-gray-400 flex items-center gap-2" >
-        <Button className="hover:bg-black hover:bg-opacity-10 p-2 rounded-md bg-white border border-gray-400 shadow-gray-500 shadow-sm">
-          <Link to={'/'} >
+        <Link to={'/'} >
+          <Button className="hover:bg-black hover:bg-opacity-10 p-2 rounded-md bg-white border border-gray-400 shadow-gray-500 shadow-sm">
             <HomeIcon />
-          </Link>
-        </Button>
+          </Button>
+        </Link>
         <HeaderToolBar />
         <Button
           onClick={() => handleDeleteCanvas(id)}
