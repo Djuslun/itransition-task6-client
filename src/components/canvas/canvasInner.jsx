@@ -4,6 +4,7 @@ import { useCanvas } from './useCanvas';
 import { useSelector } from 'react-redux';
 import { useRef, memo } from 'react';
 import { useParams } from 'react-router-dom';
+import { canvasBaseSize } from "../../utils/consts";
 
 const CanvasInner = () => {
   const { tool } = useSelector(store => store.tools)
@@ -15,8 +16,8 @@ const CanvasInner = () => {
   return (
     <div className='border-2 border-gray-400 shadow-gray-500 rounded-md'>
       <Stage
-        width={1840}
-        height={800}
+        width={canvasBaseSize.width}
+        height={canvasBaseSize.height}
         onMouseDown={handleMouseDown}
         onMousemove={handleMouseMove}
         onMouseup={handleMouseUp}

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import ShapeComponent from '../../../components/canvas/shapeComponent/shapeComponent';
 import { useRef } from "react";
 import { UseCanvasPreviewSize } from "./useCanvasPreviewSize";
+import { canvasBaseSize } from "../../../utils/consts";
 
 const CanvasPreview = ({ canvas }) => {
   const navigate = useNavigate()
@@ -20,7 +21,7 @@ const CanvasPreview = ({ canvas }) => {
         width={canvasWidth}
         height={canvasWidth / 2}
       >
-        <Layer scale={{ x: (canvasWidth) / 1840, y: canvasWidth / 800 / 2 }} >
+        <Layer scale={{ x: (canvasWidth) / canvasBaseSize.width, y: canvasWidth / canvasBaseSize.height / 2 }} >
           {canvas.shapes?.map((shape, i) => {
             return <ShapeComponent shape={shape} key={i} />
           })}
