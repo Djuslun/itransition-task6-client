@@ -32,6 +32,6 @@ const { actions, reducer: tools } = toolsSlice
 
 export default tools
 
-export const { selectAll } = toolsAdapter.getSelectors(state => state.filters)
+export const { selectAll } = toolsAdapter.getSelectors(state => state.tool)
 
 export const { toolSet, borderColorSet, fillColorSet } = actions
