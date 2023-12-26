@@ -28,7 +28,7 @@ export const SelectFigureBar = ({ handleChange, currentValue }) => {
           bottom: `${-1}px`,
           left: `${menuPosition.x + menuPosition.width}px`
         }}
-        className={`portal__container fixed  bg-white shadow-md shadow-gray-400 rounded-md border-gray-400`}
+        className={`portal__container fixed  bg-white buttons-border`}
         ref={container}></div>
     </Context.Provider>
   )

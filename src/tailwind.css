@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .header-button {
+    @apply hover:bg-black hover:bg-opacity-10 p-2 rounded-md bg-white ;
+  }
+
+  .header-toolBar-button {
+    @apply hover:bg-black hover:bg-opacity-10 p-2 rounded-md bg-white;
+  }
+
+  .buttons-border {
+    @apply border border-gray-400 shadow-gray-500 shadow-sm rounded-md;
+  }
+}

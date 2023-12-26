@@ -13,14 +13,14 @@ const Header = ({ }) => {
     <>
       <header className="p-2 pl-20 w-screen bg-gray-300  shadow-md shadow-gray-400 flex items-center gap-2" >
         <Link to={'/'} >
-          <Button className="hover:bg-black hover:bg-opacity-10 p-2 rounded-md bg-white border border-gray-400 shadow-gray-500 shadow-sm">
+          <Button className="header-button buttons-border">
             <HomeIcon />
           </Button>
         </Link>
         <HeaderToolBar />
         <Button
           onClick={() => handleDeleteCanvas(id)}
-          className="hover:bg-black hover:bg-opacity-10 p-2 rounded-md bg-white border border-gray-400 shadow-gray-500 shadow-sm">
+          className="header-button buttons-border">
           <DeleteForeverIcon />
         </Button>
       </header>

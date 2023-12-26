@@ -15,7 +15,7 @@ import { borderColorSet, fillColorSet } from '../../../store/toolSlice';
 const HeaderToolBar = ({ }) => {
   const dispatch = useDispatch()
   const { borderColor, fillColor } = useSelector(store => store.tools)
-  const buttonClassName = 'hover:bg-black hover:bg-opacity-10 p-2 rounded-md '
+  const buttonClassName = 'header-button'
   const borderColorContainer = useRef(null)
   const fillColorContainer = useRef(null)
   const {
@@ -29,7 +29,7 @@ const HeaderToolBar = ({ }) => {
 
   return (
     <>
-      <div className='flex border bg-white border-gray-400 shadow-gray-500 rounded-md shadow-sm'>
+      <div className='buttons-border bg-white'>
         <Button
           onClick={() => dispatch(undo())}
           className={buttonClassName}><UndoIcon /></Button>

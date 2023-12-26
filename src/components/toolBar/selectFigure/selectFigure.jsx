@@ -9,32 +9,30 @@ const SelectFigure = ({ handleChange }) => {
   const sx = { border: 'none', borderRadius: '4px !important' }
 
   return (
-    <div className='border border-gray-400 rounded-md'>
-      <ToggleButtonGroup
-        value={toolBarValue}
-        exclusive
-        onChange={(_, newAlignment) => {
-          handleChangeToolBarValue(_, newAlignment)
-          handleChange(_, newAlignment)
-          setIsActive(false)
-        }}
-        size="medium"
-        orientation="horizontal"
-      >
-        <ToggleButton value="rhombus" sx={sx}>
-          <Icon selectedIcon={"rhombus"} />
-        </ToggleButton>
-        <ToggleButton value="ellipse" sx={sx}>
-          <Icon selectedIcon={"ellipse"} />
-        </ToggleButton>
-        <ToggleButton value="triangle" sx={sx}>
-          <Icon selectedIcon={"triangle"} />
-        </ToggleButton>
-        <ToggleButton value="rect" sx={{ ...sx }} >
-          <Icon selectedIcon={"rect"} />
-        </ToggleButton>
-      </ToggleButtonGroup>
-    </div>
+    <ToggleButtonGroup
+      value={toolBarValue}
+      exclusive
+      onChange={(_, newAlignment) => {
+        handleChangeToolBarValue(_, newAlignment)
+        handleChange(_, newAlignment)
+        setIsActive(false)
+      }}
+      size="medium"
+      orientation="horizontal"
+    >
+      <ToggleButton value="rhombus" sx={sx}>
+        <Icon selectedIcon={"rhombus"} />
+      </ToggleButton>
+      <ToggleButton value="ellipse" sx={sx}>
+        <Icon selectedIcon={"ellipse"} />
+      </ToggleButton>
+      <ToggleButton value="triangle" sx={sx}>
+        <Icon selectedIcon={"triangle"} />
+      </ToggleButton>
+      <ToggleButton value="rect" sx={{ ...sx }} >
+        <Icon selectedIcon={"rect"} />
+      </ToggleButton>
+    </ToggleButtonGroup>
   )
 }
 
