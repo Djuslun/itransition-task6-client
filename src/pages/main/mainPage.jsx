@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useGetAllCanvasesQuery } from "../../store/canvasApiSlice"
 import CanvasPreview from "./canvasPreview/canvasPreview"
-import GreetingForm from "../../components/greetingForm/greetingForm"
 
 const MainPage = ({ }) => {
   const navigate = useNavigate()
@@ -31,7 +30,6 @@ const MainPage = ({ }) => {
           </div>
         </div>
       </div>
-      <GreetingForm />
     </>
   )
 }

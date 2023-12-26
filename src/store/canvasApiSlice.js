@@ -27,10 +27,10 @@ export const canvasApiSlice = createApi({
       providesTags: ['Canvas'],
     }),
     updateCanvas: builder.mutation({
-      query: ({ id, shapes }) => ({
+      query: ({ id, shapes, user }) => ({
         url: `${id}`,
         method: 'PUT',
-        body: { shapes }
+        body: { shapes, user }
       }),
       providesTags: ['Canvas'],
     }),

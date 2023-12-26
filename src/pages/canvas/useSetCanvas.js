@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { shapesSet } from '../../store/canvasSlice';
+import { shapesSet, setLastUpdater } from '../../store/canvasSlice';
 import { useEffect } from 'react';
 import { useSubscribeOnChangeCanvas } from './useChangeCanvas';
 import { useGetCanvasByIdQuery } from '../../store/canvasApiSlice';
@@ -14,6 +14,7 @@ export const useSetCanvas = (id) => {
   useEffect(() => {
     if (data) {
       dispatch(shapesSet(data.shapes))
+      dispatch(setLastUpdater(data.lastUpdater))
     }
   }, [isSuccess])
 

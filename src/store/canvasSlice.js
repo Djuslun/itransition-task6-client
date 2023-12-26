@@ -5,6 +5,7 @@ const canvasAdapter = createEntityAdapter()
 const initialState = canvasAdapter.getInitialState({
   shapes: null,
   undo: [],
+  lastUpdater: {}
 })
 
 const canvasSlice = createSlice({
@@ -27,6 +28,9 @@ const canvasSlice = createSlice({
       if (state.undo.length) {
         state.shapes.push(state.undo.pop())
       }
+    },
+    setLastUpdater: (state, action) => {
+      state.lastUpdater = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -39,4 +43,4 @@ const { actions, reducer: canvas } = canvasSlice
 
 export default canvas
 
-export const { shapesSet, shapesClear, undo, redo } = actions
+export const { shapesSet, shapesClear, undo, redo, setLastUpdater } = actions

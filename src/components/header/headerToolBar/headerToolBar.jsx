@@ -5,7 +5,7 @@ import BorderColorIcon from '@mui/icons-material/BorderColor';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Button } from '@mui/base';
 import { useDispatch, useSelector } from 'react-redux';
-import { shapesClear, undo, redo } from '../../../store/canvasSlice';
+import { shapesClear, undo, redo, setLastUpdater } from '../../../store/canvasSlice';
 import { useActiveMenu } from '../../../hooks/useActiveMenu';
 import { useRef } from 'react';
 import Portal from '../../portal/portal';
@@ -15,6 +15,7 @@ import { borderColorSet, fillColorSet } from '../../../store/toolSlice';
 const HeaderToolBar = ({ }) => {
   const dispatch = useDispatch()
   const { borderColor, fillColor } = useSelector(store => store.tools)
+  const { user } = useSelector(store => store.user)
   const buttonClassName = 'header-button'
   const borderColorContainer = useRef(null)
   const fillColorContainer = useRef(null)
@@ -31,10 +32,16 @@ const HeaderToolBar = ({ }) => {
     <>
       <div className='buttons-border bg-white'>
         <Button
-          onClick={() => dispatch(undo())}
+          onClick={() => {
+            dispatch(setLastUpdater(user))
+            dispatch(undo())
+          }}
           className={buttonClassName}><UndoIcon /></Button>
         <Button
-          onClick={() => dispatch(redo())}
+          onClick={() => {
+            dispatch(setLastUpdater(user))
+            dispatch(redo())
+          }}
           className={buttonClassName}><RedoIcon /></Button>
         <Button
           onClick={(event) => handleBorderActive(event.currentTarget.getBoundingClientRect())}
@@ -43,7 +50,10 @@ const HeaderToolBar = ({ }) => {
           onClick={(event) => handleFillActive(event.currentTarget.getBoundingClientRect())}
           className={buttonClassName}><FormatColorFillIcon /></Button>
         <Button
-          onClick={() => dispatch(shapesClear())}
+          onClick={() => {
+            dispatch(setLastUpdater(user))
+            dispatch(shapesClear())
+          }}
           className={buttonClassName}><ClearIcon /></Button>
       </div>
       <Portal container={borderColorContainer} isActive={borderIsActive} menuPosition={borderMenuPosition}>
