@@ -3,8 +3,7 @@ import { useCreateCanvasMutation } from "../../store/canvasApiSlice"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useGetAllCanvasesQuery } from "../../store/canvasApiSlice"
-import { Stage, Layer } from 'react-konva';
-import ShapeComponent from '../../components/canvas/shapeComponent/shapeComponent';
+import CanvasPreview from "./canvasPreview/canvasPreview"
 
 const MainPage = ({ }) => {
   const navigate = useNavigate()
@@ -13,7 +12,6 @@ const MainPage = ({ }) => {
 
   useEffect(() => {
     if (data?._id) {
-      console.log(data?._id)
       navigate(`canvas/${data._id}`)
     }
   }, [data])
@@ -24,23 +22,9 @@ const MainPage = ({ }) => {
         <Button
           onClick={() => createCanvas()}
           className="p-5 rounded-md bg-white mb-2 border border-gray-400 shadow-sm shadow-gray-500">+ Create a new canvas</Button>
-        <div className="flex flex-wrap gap-2 justify-between">
+        <div className="grid gap-2 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
           {canvases && canvases.map(canvas => {
-            return <Button
-              key={canvas._id}
-              onClick={() => navigate(`canvas/${canvas._id}`)}
-              className="p-5 rounded-md bg-white origin-top-left border border-gray-400 shadow-md">
-              <Stage
-                width={400}
-                height={200}
-              >
-                <Layer scale={{ x: 0.23, y: 0.23 }} >
-                  {canvas.shapes?.map((shape, i) => {
-                    return <ShapeComponent shape={shape} key={i} />
-                  })}
-                </Layer>
-              </Stage>
-            </Button>
+            return <CanvasPreview canvas={canvas} key={canvas._id} />
           })}
         </div>
       </div>
