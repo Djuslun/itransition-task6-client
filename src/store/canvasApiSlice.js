@@ -45,6 +45,7 @@ export const canvasApiSlice = createApi({
       query: (id) => ({
         url: `changeCanvas?timestamp=${new Date().getTime()}`,
         method: 'GET',
+        cache: 'no-cache'
       }),
       forceRefetch() {
         return true

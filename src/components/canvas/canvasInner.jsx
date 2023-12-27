@@ -2,7 +2,7 @@ import { Stage, Layer } from 'react-konva';
 import ShapeComponent from './shapeComponent/shapeComponent';
 import { useCanvas } from './useCanvas';
 import { useSelector, useDispatch } from 'react-redux';
-import { useRef, memo, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { canvasBaseSize } from "../../utils/consts";
 import { setCanvasDataUri } from '../../store/canvasSlice';
@@ -18,6 +18,10 @@ const CanvasInner = () => {
   useEffect(() => {
     dispatch(setCanvasDataUri(canvasRef.current.toDataURL()))
   }, [canvasRef.current])
+
+  useEffect(() => {
+    canvasRef.current.clear()
+  }, [shapes?.length])
 
   return (
     <div className='border-2 border-gray-400 shadow-gray-500 rounded-md'>
@@ -39,4 +43,4 @@ const CanvasInner = () => {
   );
 };
 
-export default memo(CanvasInner);
+export default CanvasInner;
