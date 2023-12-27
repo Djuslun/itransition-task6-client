@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useGetAllCanvasesQuery } from "../../store/canvasApiSlice"
 import CanvasPreview from "./canvasPreview/canvasPreview"
+import Loader from '../../ui/loader';
 
 const MainPage = ({ }) => {
   const navigate = useNavigate()
   const [createCanvas, { data, isLoading }] = useCreateCanvasMutation()
-  const { data: canvases } = useGetAllCanvasesQuery()
+  const { data: canvases, isLoading: isCanvasesLoading } = useGetAllCanvasesQuery()
 
   useEffect(() => {
     if (data?._id) {
@@ -30,6 +31,7 @@ const MainPage = ({ }) => {
           </div>
         </div>
       </div>
+      <Loader open={isLoading || isCanvasesLoading} />
     </>
   )
 }
